@@ -25,7 +25,7 @@ app.engine("html", require("ejs").renderFile);
 // middlewares
 app.use(
   session({
-    secret: "MasterCode",
+    secret: "karenJhonier",
     resave: false,
     saveUninitialized: false,
     store: new mysqlsession(database)
