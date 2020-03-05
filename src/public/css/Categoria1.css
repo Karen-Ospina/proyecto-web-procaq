@@ -1,0 +1,60 @@
+
+
+.row{
+    padding: 0%;
+    display: inline-block;
+}
+
+.slide{
+    width: 50%;
+    height: 20%;
+   
+   
+}
+
+.bd-example{
+    display:flex;
+    
+    justify-content: center;
+   
+}
+
+.carousel-inner{
+    border-radius: 30px;
+    
+}
+
+.portfolio-item{
+   
+    display: inline-block;
+   
+}
+
+
+.portfolio-caption{
+    width: 120%;
+    height: 106%;
+    display: inline-block;
+}
+
+.d-md-block{
+    border-radius: 10px;
+    background: rgb(0, 0, 0,50%);
+    font-family: 'Times New Roman', Times, serif; 
+    font-weight: bold; 
+    text-shadow: 0px 3px 3px rgba(255,255,255,0.4),0px -1px 1px rgba(0,0,0,0.3);
+}
+
+
+.TituloFormularioProducto{
+    font-family: 'Times New Roman', Times, serif; 
+    text-shadow: 0px 3px 3px rgba(255,255,255,0.4),0px -1px 1px rgba(0,0,0,0.3);
+}
+
+.btn-success{
+    font-size: 19px;
+}
+
+
+
+

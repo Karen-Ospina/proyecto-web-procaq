@@ -1,0 +1,11 @@
+body{
+    background: #F0F0F0;
+}
+.contenedores{
+    border: 1px solid lightgrey;
+    background: white;
+    padding: 50px;
+}
+.fuente{
+    vertical-align: inherit;;
+}

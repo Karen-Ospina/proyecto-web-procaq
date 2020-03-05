@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, shrink-to-fit=no"
+    />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Productos para el hogar</title>
+    <link href="../vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+
+    <!-- Custom fonts for this template -->
+    <link
+      href="../vendor/fontawesome-free/css/all.min.css"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Montserrat:400,700"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Kaushan+Script"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <!-- Custom styles for this template -->
+    <link href="../css/agency.min.css" rel="stylesheet" />
+    <link href="../css/Categoria1.css" rel="stylesheet" />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+      crossorigin="anonymous"
+    />
+  </head>
+
+  <body id="page-top">
+    <nav
+      class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top"
+      id="mainNav"
+    >
+      <div class="container">
+        <a class="navbar-brand js-scroll-trigger" href="/"
+          ><i class="fa fa-home"></i> ProCaq</a
+        >
+      </div>
+    </nav>
+
+    <!-- PORTAFOLIO DE CATEGORIAS DE PRODUCTOS -->
+    <section class="bg-light page-section" id="portfolio">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12 text-center">
+            <h2 class="titulocategoria1">NUESTROS PRODUCTOS</h2>
+          </div>
+        </div>
+        <br />
+        <hr />
+
+        <%if(productos){%> <%for(var i=0; i < productos.length; i++){%>
+        <h3 class="subtitulocategoria1"><%= productos[i].Nombre%></h3>
+        <!-- PRODUCTOS -->
+        <hr />
+        <div class="row">
+          <div class="bd-example">
+            <div
+              id="carouselExampleCaptions"
+              class="carousel slide"
+              data-ride="carousel"
+            >
+              <div class="carousel-inner">
+                <div class="carousel-item active">
+                  <img
+                    width="50"
+                    src="<%= productos[i].Ruta%>"
+                    class="d-block w-100"
+                  />
+                </div>
+              </div>
+            </div>
+
+            <div class="col-md-4 col-sm-6 portfolio-item">
+              <form action="/comprar" method="post">
+                <div class="portfolio-caption">
+                  <br />
+                  <h3 class="TituloFormularioProducto">
+                    <%= productos[i].categoria%>
+                  </h3>
+                  <input
+                    type="text"
+                    name="IdProducto"
+                    id="IdProducto"
+                    value="<%=productos[i].ID%>"
+                    hidden
+                  />
+                  <br />
+                  <br />
+                  <hr />
+                  <h5 id="NombreSuavisante" class="EtiketaBloquePrecio">
+                    <%= productos[i].Nombre%> - Procaq
+                  </h5>
+                  <hr />
+                  <h5 class="EtiketaBloquePrecio">Medida del producto:</h5>
+                  <select id="Medida" name="Medida" class="input100" required>
+                    <% if(medidas){%> <% for(var j=0; j < medidas.length; j++){
+                    %>
+                    <option value="<%= medidas[j].id_presentacion%>"
+                      ><%= medidas[j].nombre%> -
+                      <%=medidas[j].cantidad_medida%></option
+                    >
+                    <% } %> <% } %>
+                  </select>
+                  <hr />
+                  <h5 class="EtiketaBloquePrecio">No Unidades:</h5>
+                  <select
+                    name="Cantidad"
+                    id="Cantidad"
+                    class="input100"
+                    required
+                  >
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="5">5</option>
+                    <option value="10">10</option>
+                  </select>
+                  <hr />
+                  <button type="submit" class="btn btn-success">
+                    Comprar
+                    <i class="fas fa-dolly" width="32" height="32"></i>
+                  </button>
+                  <br />
+                  <br />
+                  <br />
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+        <br />
+        <hr />
+        <%}%> <%}%>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <% include ./partials/footer.html%>
+
+    <script
+      src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+      integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+      integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+      integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+      crossorigin="anonymous"
+    ></script>
+
+    <!-- Enlace con firebase -->
+    <script src="https://www.gstatic.com/firebasejs/7.3.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.3.0/firebase-firestore.js"></script>
+  </body>
+</html>
